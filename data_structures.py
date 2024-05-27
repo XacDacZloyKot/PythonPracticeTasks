@@ -148,6 +148,7 @@ class LinkedList:
             else:
                 previous = current
                 current = current.get_next()
+        return None
 
 
 # region Пример использования Queue
