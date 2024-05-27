@@ -1,6 +1,9 @@
+import collections
+
+
 class Queue:
     def __init__(self, *args) -> None:
-        self.items: list = [*args]
+        self.items: collections.deque = collections.deque([*args])
 
     def add(self, item: any) -> None:
         self.items.append(item)
@@ -8,14 +11,14 @@ class Queue:
 
     def remove(self) -> any:
         if self.items:
-            return self.items.pop(0)
+            return self.items.popleft()
         raise IndexError("Remove from empty queue")
 
     def size(self) -> int:
         return len(self.items)
 
     def __str__(self) -> str:
-        return f"{self.items} Длинна: {self.size()}"
+        return f"{list(self.items)} Длинна: {self.size()}"
 
 
 class Stack:
